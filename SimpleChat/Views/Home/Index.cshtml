@@ -1,0 +1,18 @@
+﻿@using SimpleChat.Models.Chat
+@model Message
+<div>
+    <hr />
+    @foreach (var message in ViewBag.Messages)
+    {
+        <span>@message.Sign: </span>
+        <span>@message.Text</span>       
+        <hr />
+    }
+</div>
+@if ((bool)@ViewData["IsUserAuthorized"])
+{
+    <form method="post">
+        <textarea name="Text" cols="80" rows="5"></textarea>
+        <div><input type="submit" value="Send" /></div>
+    </form>
+}
